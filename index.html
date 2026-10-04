@@ -1,194 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Free HEIC to JPG Converter | NinaTools</title>
+  <title>Free HEIC to JPG Converter | NinaTools</title>
 
-<meta name="description" content="Convert HEIC and HEIF images to JPG online for free. Fast, simple and private.">
+  <meta name="description" content="Convert HEIC and HEIF images to JPG online for free. Fast, simple and private. No registration required.">
 
-<style>
-* {
-  box-sizing: border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #f5f7ff, #eef2ff);
-  color: #222;
-}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7ff, #eef2ff);
+      color: #222;
+    }
 
-header {
-  background: white;
-  text-align: center;
-  padding: 28px 20px;
-  border-bottom: 1px solid #e5e7eb;
-}
+    header {
+      background: white;
+      text-align: center;
+      padding: 28px 20px;
+      border-bottom: 1px solid #e5e7eb;
+    }
 
-.logo {
-  font-size: 30px;
-  font-weight: 800;
-  margin: 0;
-}
+    .logo {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 800;
+    }
 
-.tagline {
-  color: #666;
-  margin: 8px 0 0;
-  font-size: 16px;
-}
+    .tagline {
+      margin: 8px 0 0;
+      color: #666;
+      font-size: 17px;
+    }
 
-.container {
-  max-width: 720px;
-  margin: 45px auto;
-  padding: 20px;
-}
+    .container {
+      max-width: 720px;
+      margin: 35px auto;
+      padding: 20px;
+    }
 
-.card {
-  background: white;
-  border-radius: 24px;
-  padding: 35px 25px;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.08);
-  text-align: center;
-}
+    .card {
+      background: white;
+      border-radius: 22px;
+      padding: 32px 25px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      text-align: center;
+    }
 
-h2 {
-  font-size: 32px;
-  margin: 5px 0 15px;
-}
+    h2 {
+      font-size: 30px;
+      margin: 0 0 12px;
+    }
 
-.intro {
-  color: #666;
-  font-size: 17px;
-  line-height: 1.6;
-}
+    .intro {
+      color: #666;
+      font-size: 17px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
 
-.upload-area {
-  border: 2px dashed #b9c1d0;
-  border-radius: 18px;
-  padding: 40px 20px;
-  margin-top: 28px;
-  background: #fafbff;
-}
+    .upload-area {
+      border: 2px dashed #b8c0cc;
+      border-radius: 18px;
+      padding: 35px 18px;
+      background: #fafbff;
+    }
 
-.upload-icon {
-  font-size: 45px;
-  margin-bottom: 10px;
-}
+    .icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
 
-.upload-title {
-  font-size: 20px;
-  font-weight: bold;
-}
+    .upload-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
 
-.upload-text {
-  color: #777;
-  margin: 10px 0 22px;
-}
+    .upload-text {
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
 
-input[type="file"] {
-  max-width: 100%;
-  font-size: 15px;
-}
+    input[type="file"] {
+      max-width: 100%;
+      margin-bottom: 18px;
+    }
 
-button,
-.download-button {
-  border: none;
-  border-radius: 12px;
-  padding: 14px 25px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 20px;
-}
+    button,
+    #download {
+      border: none;
+      border-radius: 12px;
+      padding: 14px 26px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
 
-button {
-  background: #222;
-  color: white;
-}
+    #convertButton {
+      background: #222;
+      color: white;
+    }
 
-button:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
+    #convertButton:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
 
-.download-button {
-  display: none;
-  background: #16803c;
-  color: white;
-  text-decoration: none;
-}
+    #download {
+      display: none;
+      background: #16803c;
+      color: white;
+      margin-top: 15px;
+    }
 
-#status {
-  margin-top: 20px;
-  min-height: 24px;
-  color: #555;
-  font-size: 15px;
-}
+    #status {
+      margin-top: 20px;
+      color: #555;
+      min-height: 25px;
+      line-height: 1.5;
+    }
 
-.privacy {
-  margin-top: 30px;
-  padding: 18px;
-  border-radius: 12px;
-  background: #f3f7f4;
-  color: #555;
-  font-size: 14px;
-  line-height: 1.6;
-}
+    .privacy {
+      margin-top: 25px;
+      padding: 18px;
+      background: #f5f7f7;
+      border-radius: 14px;
+      color: #666;
+      font-size: 14px;
+      line-height: 1.6;
+    }
 
-.features {
-  margin-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #777;
+      font-size: 14px;
+    }
 
-.feature {
-  background: #f7f8fc;
-  padding: 15px 8px;
-  border-radius: 12px;
-  font-size: 13px;
-}
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px auto;
+        padding: 14px;
+      }
 
-.feature strong {
-  display: block;
-  margin-bottom: 5px;
-}
+      .card {
+        padding: 25px 15px;
+      }
 
-footer {
-  text-align: center;
-  padding: 35px 20px;
-  color: #777;
-  font-size: 14px;
-}
+      h2 {
+        font-size: 26px;
+      }
 
-@media (max-width: 600px) {
-  .container {
-    margin: 25px auto;
-    padding: 14px;
-  }
+      .upload-area {
+        padding: 30px 12px;
+      }
 
-  .card {
-    padding: 28px 18px;
-  }
-
-  h2 {
-    font-size: 27px;
-  }
-
-  .features {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+      .logo {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">NinaTools</div>
-  <div class="tagline">Free online tools for everyone</div>
+  <h1 class="logo">NinaTools</h1>
+  <p class="tagline">Free online tools for everyone</p>
 </header>
 
 <div class="container">
@@ -204,7 +192,7 @@ footer {
 
     <div class="upload-area">
 
-      <div class="upload-icon">🖼️</div>
+      <div class="icon">🖼️</div>
 
       <div class="upload-title">
         Select your HEIC image
@@ -228,11 +216,7 @@ footer {
 
       <div id="status"></div>
 
-      <a
-        id="download"
-        class="download-button"
-        download="converted.jpg"
-      >
+      <a id="download" download="converted.jpg">
         Download JPG
       </a>
 
@@ -242,28 +226,6 @@ footer {
       🔒 <strong>Privacy first</strong><br>
       Your image is processed directly in your browser.
       Your photo is not uploaded to our server.
-    </div>
-
-    <div class="features">
-
-      <div class="feature">
-        ⚡
-        <strong>Fast</strong>
-        Quick conversion
-      </div>
-
-      <div class="feature">
-        🔒
-        <strong>Private</strong>
-        Browser processing
-      </div>
-
-      <div class="feature">
-        💻
-        <strong>Free</strong>
-        No registration
-      </div>
-
     </div>
 
   </div>
@@ -278,72 +240,80 @@ footer {
 
 <script>
 
-const fileInput = document.getElementById("fileInput");
-const convertButton = document.getElementById("convertButton");
-const status = document.getElementById("status");
-const download = document.getElementById("download");
+  const fileInput = document.getElementById("fileInput");
+  const convertButton = document.getElementById("convertButton");
+  const status = document.getElementById("status");
+  const download = document.getElementById("download");
 
-let selectedFile = null;
+  let selectedFile = null;
+  let currentUrl = null;
 
-fileInput.addEventListener("change", function() {
+  fileInput.addEventListener("change", function() {
 
-  selectedFile = fileInput.files[0];
+    selectedFile = fileInput.files[0];
 
-  download.style.display = "none";
+    download.style.display = "none";
 
-  if (!selectedFile) {
+    if (currentUrl) {
+      URL.revokeObjectURL(currentUrl);
+      currentUrl = null;
+    }
+
+    if (!selectedFile) {
+      convertButton.disabled = true;
+      status.textContent = "";
+      return;
+    }
+
+    convertButton.disabled = false;
+
+    status.textContent =
+      "Selected: " + selectedFile.name;
+
+  });
+
+  convertButton.addEventListener("click", async function() {
+
+    if (!selectedFile) return;
+
     convertButton.disabled = true;
-    status.textContent = "";
-    return;
-  }
-
-  convertButton.disabled = false;
-
-  status.textContent =
-    "Selected: " + selectedFile.name;
-});
-
-convertButton.addEventListener("click", async function() {
-
-  if (!selectedFile) return;
-
-  convertButton.disabled = true;
-  download.style.display = "none";
-
-  status.textContent =
-    "Converting... Please wait.";
-
-  try {
-
-    const result = await heic2any({
-      blob: selectedFile,
-      toType: "image/jpeg",
-      quality: 0.90
-    });
-
-    const jpegBlob =
-      Array.isArray(result) ? result[0] : result;
-
-    const url =
-      URL.createObjectURL(jpegBlob);
-
-    download.href = url;
-    download.style.display = "inline-block";
+    download.style.display = "none";
 
     status.textContent =
-      "Done! Your JPG is ready.";
+      "Converting... Please wait.";
 
-  } catch (error) {
+    try {
 
-    console.error(error);
+      const result = await heic2any({
+        blob: selectedFile,
+        toType: "image/jpeg",
+        quality: 0.90
+      });
 
-    status.textContent =
-      "Sorry, this file could not be converted. Please try another HEIC image.";
-  }
+      const jpegBlob =
+        Array.isArray(result) ? result[0] : result;
 
-  convertButton.disabled = false;
+      currentUrl =
+        URL.createObjectURL(jpegBlob);
 
-});
+      download.href = currentUrl;
+      download.style.display = "inline-block";
+
+      status.textContent =
+        "Done! Your JPG is ready.";
+
+    } catch (error) {
+
+      console.error(error);
+
+      status.textContent =
+        "Sorry, this file could not be converted. Please try another HEIC image.";
+
+    }
+
+    convertButton.disabled = false;
+
+  });
 
 </script>
 
