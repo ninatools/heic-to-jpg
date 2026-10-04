@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Free HEIC to JPG Converter | NinaTools</title>
+
+  <meta name="description" content="Convert HEIC images to JPG online for free. Fast, private and easy to use. Your photos are processed in your browser.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+    }
+
+    header {
+      background: white;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    header p {
+      margin: 8px 0 0;
+      color: #666;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .upload-area {
+      border: 2px dashed #b8c0cc;
+      border-radius: 14px;
+      padding: 40px 20px;
+      margin: 20px 0;
+      background: #fafbfc;
+    }
+
+    .upload-area p {
+      color: #666;
+    }
+
+    input[type="file"] {
+      margin: 15px 0;
+      max-width: 100%;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 13px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      background: #222;
+      color: white;
+      margin-top: 10px;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    #download {
+      display: none;
+      background: #16803c;
+      text-decoration: none;
+      color: white;
+      padding: 13px 24px;
+      border-radius: 10px;
+      margin-top: 15px;
+      display: inline-block;
+    }
+
+    #status {
+      margin-top: 20px;
+      color: #555;
+      min-height: 24px;
+    }
+
+    .privacy {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>NinaTools</h1>
+  <p>Free online tools for everyone</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+
+    <h2>Free HEIC to JPG Converter</h2>
+
+    <p>
+      Convert HEIC and HEIF images to JPG quickly and easily.
+    </p>
+
+    <div class="upload-area">
+
+      <strong>Select your HEIC image</strong>
+
+      <p>
+        Your photo is processed in your browser.
+      </p>
+
+      <input
+        type="file"
+        id="fileInput"
+        accept=".heic,.heif,image/heic,image/heif"
+      >
+
+      <br>
+
+      <button id="convertButton" disabled>
+        Convert to JPG
+      </button>
+
+      <div id="status"></div>
+
+      <a id="download" download="converted.jpg">
+        Download JPG
+      </a>
+
+    </div>
+
+    <div class="privacy">
+      🔒 <strong>Privacy first</strong><br>
+      Your image is processed directly in your browser.
+      We do not upload your photo to our server.
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2026 NinaTools · Free HEIC to JPG Converter
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+
+<script>
+
+  const fileInput = document.getElementById("fileInput");
+  const convertButton = document.getElementById("convertButton");
+  const status = document.getElementById("status");
+  const download = document.getElementById("download");
+
+  let selectedFile = null;
+
+  fileInput.addEventListener("change", function() {
+
+    selectedFile = fileInput.files[0];
+
+    download.style.display = "none";
+
+    if (!selectedFile) {
+      convertButton.disabled = true;
+      status.textContent = "";
+      return;
+    }
+
+    convertButton.disabled = false;
+
+    status.textContent =
+      "Selected: " + selectedFile.name;
+
+  });
+
+  convertButton.addEventListener("click", async function() {
+
+    if (!selectedFile) return;
+
+    convertButton.disabled = true;
+    download.style.display = "none";
+
+    status.textContent =
+      "Converting... Please wait.";
+
+    try {
+
+      const result = await heic2any({
+        blob: selectedFile,
+        toType: "image/jpeg",
+        quality: 0.90
+      });
+
+      const jpegBlob =
+        Array.isArray(result) ? result[0] : result;
+
+      const url =
+        URL.createObjectURL(jpegBlob);
+
+      download.href = url;
+      download.style.display = "inline-block";
+
+      status.textContent =
+        "Done! Your JPG is ready.";
+
+    } catch (error) {
+
+      console.error(error);
+
+      status.textContent =
+        "Sorry, this file could not be converted. Please try another HEIC image.";
+
+    }
+
+    convertButton.disabled = false;
+
+  });
+
+</script>
+
+</body>
+</html>
